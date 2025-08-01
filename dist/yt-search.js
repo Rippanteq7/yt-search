@@ -69,7 +69,7 @@ function debug() {
 // used to escape query strings
 var _querystring = require('querystring');
 var _humanTime = require('human-time');
-var CORS_URL = 'https://aku.pluvi.workers.dev/'
+var CORS_URL = _envs.cors_url || 'https://cors.caliph.my.id/'
 var TEMPLATES = {
   YT: 'https://youtube.com',
   SEARCH_MOBILE: 'https://m.youtube.com/results',
