@@ -69,6 +69,7 @@ function debug() {
 // used to escape query strings
 var _querystring = require('querystring');
 var _humanTime = require('human-time');
+var CORS_URL = 'https://aku.pluvi.workers.dev/'
 var TEMPLATES = {
   YT: 'https://youtube.com',
   SEARCH_MOBILE: 'https://m.youtube.com/results',
@@ -276,7 +277,7 @@ function getSearchResults(_options, callback) {
   if (_options.sp) {
     queryString += '&sp=' + _options.sp;
   }
-  var uri = TEMPLATES.SEARCH_DESKTOP + queryString;
+  var uri = CORS_URL + TEMPLATES.SEARCH_DESKTOP + queryString;
   var params = _url.parse(uri);
   params.headers = {
     'user-agent': _userAgent,
@@ -664,7 +665,7 @@ function getVideoMetaData(opts, callback) {
     hl = _opts$hl === void 0 ? 'en' : _opts$hl,
     _opts$gl = opts.gl,
     gl = _opts$gl === void 0 ? 'US' : _opts$gl;
-  var uri = "https://www.youtube.com/watch?hl=".concat(hl, "&gl=").concat(gl, "&v=").concat(videoId);
+  var uri = CORS_URL + "https://www.youtube.com/watch?hl=".concat(hl, "&gl=").concat(gl, "&v=").concat(videoId);
   var params = _url.parse(uri);
   params.headers = {
     'user-agent': _userAgent,
@@ -835,7 +836,7 @@ function getPlaylistMetaData(opts, callback) {
     hl = _opts$hl2 === void 0 ? 'en' : _opts$hl2,
     _opts$gl2 = opts.gl,
     gl = _opts$gl2 === void 0 ? 'US' : _opts$gl2;
-  var uri = "https://www.youtube.com/playlist?hl=".concat(hl, "&gl=").concat(gl, "&list=").concat(listId);
+  var uri = CORS_URL + "https://www.youtube.com/playlist?hl=".concat(hl, "&gl=").concat(gl, "&list=").concat(listId);
   var params = _url.parse(uri);
   params.headers = {
     'user-agent': _userAgent,
